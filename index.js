@@ -58,7 +58,7 @@ function launchBalloons(callback) {
     overlay.appendChild(createBalloon(i, isMobile));
   }
 
-  setTimeout(callback, prefersReducedMotion ? 200 : 3000);
+  setTimeout(callback, prefersReducedMotion ? 200 : 2000);
 }
 
 viewBtn.addEventListener("click", () => {
