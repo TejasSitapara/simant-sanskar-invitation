@@ -202,7 +202,7 @@ body {
 /* Subtitle */
 .subtitle {
   font-size: clamp(0.95rem, 3.5vw, 1.1rem);
-  font-weight: 400;
+  font-weight: 800;
   color: var(--gold);
   margin: 0.25rem 0 1.25rem;
   line-height: 1.5;
