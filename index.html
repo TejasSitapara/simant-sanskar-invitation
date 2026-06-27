@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>સીમંત સંસ્કાર | Simant Sanskar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <div class="bg-orb bg-orb--1"></div>
+    <div class="bg-orb bg-orb--2"></div>
+    <div class="bg-orb bg-orb--3"></div>
+
+    <main class="card">
+      <p class="invocation animate-in" style="--delay: 0.1s">|| શ્રી ગણેશાય નમઃ ||</p>
+
+      <div class="ganesha-wrap animate-in" style="--delay: 0.3s">
+        <div class="aura"></div>
+        <div class="ganesha-float">
+          <!-- Add your image: images/ganesha.png -->
+          <img
+            src="images/ganesh.png"
+            alt="Ganesha"
+            class="ganesha ganesha-img"
+            onerror="this.hidden=true; this.nextElementSibling.hidden=false"
+          />
+          
+        </div>
+      </div>
+
+      <h1 class="title animate-in" style="--delay: 0.5s">
+        <span class="butterfly butterfly--left">🦋</span>
+        સીમંત સંસ્કાર
+        <span class="butterfly butterfly--right">🦋</span>
+      </h1>
+
+      <p class="subtitle animate-in" style="--delay: 0.65s">
+        શુભ પ્રસંગનું મંગલ આમંત્રણ પત્રિકા
+      </p>
+
+      <button type="button" id="view-invite-btn" class="cta animate-in" style="--delay: 0.8s" data-href="invitation.html">
+        આમંત્રણ જુઓ
+      </button>
+    </main>
+  </div>
+
+  <div class="balloon-overlay" id="balloon-overlay" aria-hidden="true"></div>
+
+  <script src="index.js"></script>
+</body>
+</html>
