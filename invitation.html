@@ -8,14 +8,48 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="invitation.css" />
+  
+  <style>
+    .scroll-down-btn {
+      display: block;
+      margin: 2rem auto 0 auto;
+      background: rgb(37, 29, 88);
+      color: #ffffff;
+      border: 2px solid #ffffff;
+      padding: 10px 20px;
+      font-family: 'Noto Sans Gujarati', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      animation: bounce 2s infinite;
+    }
+
+    .scroll-down-btn:hover {
+      background: #ffffff;
+      color: rgb(37, 29, 88);
+      transform: scale(1.05);
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-10px);
+      }
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+  </style>
 </head>
 <body class="invite-page">
 
-  <!-- <a href="index.html" class="back-home">← પાછા જાઓ</a> -->
-
   <div class="invite-container">
 
-    <!-- ── Hero ── -->
     <header class="hero">
       <div class="hero__bg" aria-hidden="true"></div>
       <div class="hero__stars" aria-hidden="true">
@@ -32,20 +66,21 @@
         <h1 class="hero__title">સીમંત સંસ્કાર</h1>
 
         <p class="hero__host" style="font-size: 16px; color: rgb(37, 29, 88);">
-          સહર્ષ ખુશાલી સાથે  જણાવવાનું કે અમારા કુળદેવી શ્રી અંબામાંની  અસીમ કૃપાથી અ.સૌ. છાયાબેન  તથા શ્રી સંજયભાઇ ત્રિભોવનદાસ સીતાપરા  ના સુપુત્ર
+          સહર્ષ ખુશાલી સાથે જણાવવાનું કે અમારા કુળદેવી શ્રી અંબામાંની અસીમ કૃપાથી અ.સૌ. છાયાબેન તથા શ્રી સંજયભાઇ ત્રિભોવનદાસ સીતાપરા ના સુપુત્ર
 
-          ચિ. તેજસ  નાં ધર્મપત્ની <br>
+          ચિ. તેજસ નાં ધર્મપત્ની <br>
         <p style="font-size: 28px;">અ.સૌ . ક્રિષ્ના<br /> </p>
 
-        <p class="hero__host" style="font-size: 16px; color: rgb(37, 29, 88);">ના સીમંત વિધીનું શુભ મુહૂર્ત સવંત ૨૦૮૨  ના જ્યેષ્ઠ વદ તેરસ ને રવિવારે  તા. ૧૨-૦૭-૨૦૨૬  ના સવારે ૯-૦૦ કલાકે રાખેલ છે તો આ શુભ પ્રસંગે અમારી પુત્રવધુને આશીર્વાદ આપવા પધારશોજી.
+        <p class="hero__host" style="font-size: 16px; color: rgb(37, 29, 88);">ના સીમંત વિધીનું શુભ મુહૂર્ત સવંત ૨૦૮૨ ના જ્યેષ્ઠ વદ તેરસ ને રવિવારે તા. ૧૨-૦૭-૨૦૨૬ ના સવારે ૯-૦૦ કલાકે રાખેલ છે તો આ શુભ પ્રસંગે અમારી પુત્રવધુને આશીર્વાદ આપવા પધારશોજી.
         </p>
         
-        </p>
+        <button type="button" class="scroll-down-btn" onclick="scrollToNextSection()">
+          આગળ જુઓ ↓
+        </button>
       </div>
     </header>
 
-    <!-- ── Gender Poll ── -->
-    <section class="section reveal">
+    <section id="next-section" class="section reveal">
       <div class="section-card">
         <h1 class="poll-title">કાનો કે ગોપી?</h1>
         <h4 class="poll-title">બાળક અનુમાનની મનોરંજક રમત</h4>
@@ -66,15 +101,13 @@
       </div>
     </section>
 
-    <!-- ── Event Details ── -->
     <section class="section reveal">
       <h2 class="section-heading">|| શુભ પ્રસંગો ||</h2>
       <div class="section-card">
 
         <div class="event-block">
           <div class="event-block__header">
-            <!-- <div class="event-block__icon">🪔</div> -->
-            <h3 class="event-block__title"> &nbsp; &nbsp; &nbsp;સીમંત સંસ્કાર</h3>
+            <h3 class="event-block__title"> સીમંત સંસ્કાર</h3>
           </div>
           <p style="text-align: center; font-size: 0.9rem">
             “પ્રથમ માતૃત્વ પ્રાપ્તિની પ્રતીતીનો ઉત્સવ એટલે સીમંત સંસ્કાર, જેમાં આપ સહકુટુંબ પધારી અમારા આનંદમાં અભિવૃદ્ધિ કરશોજી.”
@@ -90,7 +123,7 @@
           </div>
           <div class="event-detail">
             <span class="event-detail__label">સ્થળ :</span>
-            <span class="event-detail__value">૭૯, સારથી બંગલોઝ, શેલ્બી હોસ્પિટલ નજીક, નવા નરોડા, અમદાવાદ-૩૮૨૩૩૦  </span>
+            <span class="event-detail__value">૭૯, સારથી બંગલોઝ, શેલ્બી હોસ્પિટલ નજીક, નવા નરોડા, અમદાવાદ-૩૮૨૩૩૦ </span>
           </div>
           <div class="event-map">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.7595963091444!2d72.67633107436913!3d23.069273614585555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e8733e6b6f1fd%3A0xa92d0e460e29601e!2sHome%20-%20Sarthi%20Bungalows!5e0!3m2!1sen!2sin!4v1782485390056!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -100,130 +133,35 @@
           </div>
         </div>
 
-        <!-- <div class="event-block">
-          <div class="event-block__header">
-            <div class="event-block__icon">🍽️</div>
-            <h3 class="event-block__title">ભોજન સમારંભ</h3>
-          </div>
-          <div class="event-detail">
-            <span class="event-detail__label">તારીખ</span>
-            <span class="event-detail__value">જૂન ૦૮, ૨૦૨૬ (શનિવાર)</span>
-          </div>
-          <div class="event-detail">
-            <span class="event-detail__label">સમય</span>
-            <span class="event-detail__value">બપોરે ૧૧:૦૦ વાગ્યે</span>
-          </div>
-          <div class="event-detail">
-            <span class="event-detail__label">સ્થળ</span>
-             <span class="event-detail__value">૭૯, સારથી બંગલોઝ, શેલબી હોસ્પિટલ નજીક, નવા નરોડા, અમદાવાદ </span>
-          </div>
-        </div> -->
-
       </div>
     </section>
 
-    <!-- ── Shubh Quote ── -->
     <section class="section reveal">
       <div class="quote-card">
         <div class="quote-card__shubh">🕊️</div>
         <p class="quote-card__text">
-         
           પારણિયે પોઢવા આવી રહ્યું છે એક વ્હાલું નૂર,<br>
-
-જેના આગમનથી ઘરના દુઃખ થશે બધા દૂર.<br>
-
-માતા બનવાના આ પવિત્ર અવસરે,<br>
-
-આપના આશીર્વાદ આપવા પધારજો આંગણે.
+          જેના આગમનથી ઘરના દુઃખ થશે બધા દૂર.<br>
+          માતા બનવાના આ પવિત્ર અવસરે,<br>
+          આપના આશીર્વાદ આપવા પધારજો આંગણે.
         </p>
       </div>
     </section>
 
-    <!-- ── Inviter ── -->
     <section class="section reveal">
       <div class="inviter-card">
         <h2 class="inviter-card__title">નિમંત્રક</h2>
-        <p class="inviter-card__names">
-          <h3> શ્રી  સંજયભાઇ ત્રિભોવનદાસ સીતાપરા </h3>
-          મો. ૯૮૨૫૭૧૯૨૫૩, ૭૪૯૦૮૮૭૩૩૭ 
-        </p>
+        <div class="inviter-card__names">
+          <h3> શ્રી સંજયભાઇ ત્રિભોવનદાસ સીતાપરા </h3>
+          મો. ૯૮૨૫梯૧૯૨૫૩, ૭૪૯૦૮૮૭૩૩૭ 
+        </div>
       </div>
     </section>
 
-    <!-- ── Note ── -->
-    <!-- <section class="section reveal">
-      <div class="note-card">
-        <h3 class="note-card__title">નોંધ</h3>
-        <p class="note-card__text">
-          કૃપા કરીને સમયસર પહોંચવા વિનંતી।
-          આપના પ્રેમ અને આશીર્વાદ અમારા માટે
-          સૌથી મોટી ભેટ છે।
-        </p>
-      </div>
-    </section> -->
-
-    <!-- ── RSVP ── -->
-    <!-- <section class="section reveal">
-      <div class="rsvp-card">
-        <h2 class="rsvp-card__title">હાજરી નોંધાવો</h2>
-
-        <form id="rsvp-form">
-          <div class="form-group">
-            <label for="guest-name">તમારું નામ</label>
-            <input type="text" id="guest-name" name="name" placeholder="પૂરું નામ લખો" required />
-          </div>
-
-          <div class="form-group">
-            <label>મહેમાનોની સંખ્યા</label>
-            <div class="guest-counter">
-              <div class="counter-item">
-                <span class="counter-item__label">🧑 મોટા</span>
-                <div class="counter-item__controls">
-                  <button type="button" class="counter-btn counter-btn--minus" aria-label="Decrease adults">−</button>
-                  <span class="counter-value">0</span>
-                  <button type="button" class="counter-btn counter-btn--plus" aria-label="Increase adults">+</button>
-                </div>
-              </div>
-              <div class="counter-item">
-                <span class="counter-item__label">👶 બાળક</span>
-                <div class="counter-item__controls">
-                  <button type="button" class="counter-btn counter-btn--minus" aria-label="Decrease children">−</button>
-                  <span class="counter-value">0</span>
-                  <button type="button" class="counter-btn counter-btn--plus" aria-label="Increase children">+</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="attendance">હાજરી</label>
-            <select id="attendance" name="attendance" required>
-              <option value="" disabled selected>પસંદ કરો</option>
-              <option value="yes">હા, હાજર રહીશ</option>
-              <option value="maybe">શક્યતા છે</option>
-              <option value="no">ક્ષમા, હાજર નહીં રહી શકું</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="wishes">શુભકામના / સંદેશ</label>
-            <textarea id="wishes" name="wishes" rows="3" placeholder="તમારી શુભકામના લખો..."></textarea>
-          </div>
-
-          <button type="submit" class="rsvp-submit">હાજરી નોંધાવો</button>
-        </form>
-
-        <p class="rsvp-success" id="rsvp-success">
-          🙏 આપની હાજરી નોંધાઈ ગઈ!<br />આપનું હાર્દિક આભાર।
-        </p>
-      </div>
-    </section> -->
-
-    <!-- ── Footer ── -->
     <footer class="invite-footer">
       <div class="invite-footer__pattern" aria-hidden="true"></div>
       <p style="font-family: var(--font-gujarati); font-size: 0.95rem; color: rgba(255, 255, 255, 0.8); line-height: 1.85; margin-bottom: 1rem; font-style: italic;">"ઈશ્વરની કૃપા અને આપ સૌના આશીર્વાદ સાથે<br>નવી ઉષા ઊગશે આ ઘરે."</p>
-      <p class="invite-footer__names">તેજસ  &amp; ક્રિષ્ના</p>
+      <p class="invite-footer__names">તેજસ & ક્રિષ્ના</p>
       <p class="invite-footer__tagline">આપનું હાર્દિક સ્વાગત છે 🙏</p>
     </footer>
 
@@ -235,20 +173,25 @@
 
   <script src="invitation.js"></script>
   <script>
-        // Function to play audio after the first user interaction
-        function startMusic() {
-            const audio = document.getElementById('bg-music');
-            audio.play().catch(error => {
-                console.log("Autoplay was prevented. Waiting for explicit user interaction.");
-            });
-            // Remove the event listeners so it doesn't keep triggering
-            document.removeEventListener('click', startMusic);
-            document.removeEventListener('keydown', startMusic);
-        }
+      // Function to smoothly scroll down to the main content
+      function scrollToNextSection() {
+          document.getElementById('next-section').scrollIntoView({ 
+              behavior: 'smooth' 
+          });
+      }
 
-        // Listen for a click or keypress anywhere on the page
-        document.addEventListener('click', startMusic);
-        document.addEventListener('keydown', startMusic);
-    </script>
+      // Function to play audio after the first user interaction
+      function startMusic() {
+          const audio = document.getElementById('bg-music');
+          audio.play().catch(error => {
+              console.log("Autoplay was prevented. Waiting for explicit user interaction.");
+          });
+          document.removeEventListener('click', startMusic);
+          document.removeEventListener('keydown', startMusic);
+      }
+
+      document.addEventListener('click', startMusic);
+      document.addEventListener('keydown', startMusic);
+  </script>
 </body>
 </html>
