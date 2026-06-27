@@ -242,66 +242,103 @@ body {
   transform: scale(1.02);
 }
 
-/* Balloon transition overlay */
-.balloon-overlay {
+/* Container Overlay - Prevents horizontal scroll leaks on mobile */
+#balloon-overlay {
   position: fixed;
-  inset: 0;
-  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  /* Uses dvh (dynamic viewport height) to perfectly match mobile browser toolbars */
+  height: 100dvh; 
   pointer-events: none;
+  z-index: 9999;
   overflow: hidden;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  display: none;
 }
 
-.balloon-overlay.active {
-  opacity: 1;
-  visibility: visible;
+#balloon-overlay.active {
+  display: block;
 }
 
+/* Fully Responsive Balloon Styling */
 .balloon {
   position: absolute;
-  bottom: -80px;
+  bottom: -150px; 
   left: var(--left);
-  width: var(--size);
-  height: calc(var(--size) * 1.25);
-  animation: balloon-rise var(--duration) ease-out var(--delay) forwards;
+  
+  /* RESPONSIVE SIZE: Automatically scales between 30px and 60px depending on screen size */
+  --base-size: clamp(30px, 6vw, 60px); 
+  width: calc(var(--base-size) * var(--size-factor));
+  height: calc(var(--base-size) * var(--size-factor) * 1.25);
+  
+  background: var(--color);
+  opacity: var(--opacity);
+  box-shadow: 
+    inset -6px -10px 20px rgba(0, 0, 0, 0.15), 
+    inset 4px 4px 10px rgba(255, 255, 255, 0.35),
+    0 10px 20px rgba(0, 0, 0, 0.08);
+  transform: rotate(var(--tilt));
+  animation: floatUp var(--duration) cubic-bezier(0.25, 1, 0.5, 1) var(--delay) forwards;
 }
 
+/* Glossy Highlight */
 .balloon::before {
   content: "";
-  display: block;
-  width: 100%;
-  height: 85%;
-  background: var(--color);
-  border-radius: 50% 50% 50% 50% / 55% 55% 45% 45%;
-  box-shadow: inset -4px -4px 12px rgba(0, 0, 0, 0.08),
-              inset 4px 4px 12px rgba(255, 255, 255, 0.35);
+  position: absolute;
+  top: 10%;
+  left: 15%;
+  width: 25%;
+  height: 15%;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
 }
 
+/* Balloon Knot */
 .balloon::after {
   content: "";
   position: absolute;
-  bottom: 0;
+  bottom: -4px;
   left: 50%;
-  width: 2px;
-  height: 30px;
-  background: rgba(107, 76, 138, 0.3);
   transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 7px solid var(--color);
+  filter: brightness(0.9);
 }
 
-@keyframes balloon-rise {
+/* Balloon String - Scaled down for mobile layouts */
+.balloon-string {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  width: 1px;
+  height: 30px;
+  background: rgba(0, 0, 0, 0.12);
+  transform-origin: top center;
+  animation: stringSway 0.8s ease-in-out infinite alternate;
+}
+
+/* Animations */
+@keyframes floatUp {
   0% {
-    transform: translateY(0) translateX(0) rotate(0deg);
-    opacity: 0;
+    bottom: -150px;
+    transform: translateX(0) rotate(var(--tilt));
   }
-  10% {
-    opacity: 1;
+  30% {
+    transform: translateX(calc(var(--swing) * 0.4)) rotate(calc(var(--tilt) * 0.5));
+  }
+  60% {
+    transform: translateX(calc(var(--swing) * -0.2)) rotate(calc(var(--tilt) * -0.2));
   }
   100% {
-    transform: translateY(-110vh) translateX(var(--swing)) rotate(8deg);
-    opacity: 0;
+    bottom: 110dvh; /* Ensures clearing on tall screens */
+    transform: translateX(var(--swing)) rotate(calc(var(--tilt) * 0.1));
   }
+}
+
+@keyframes stringSway {
+  0% { transform: translateX(-50%) rotate(-5deg); }
+  100% { transform: translateX(-50%) rotate(5deg); }
 }
 
 /* ── Responsive: Landing page ── */
